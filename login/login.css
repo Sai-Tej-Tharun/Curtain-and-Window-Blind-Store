@@ -1,0 +1,276 @@
+/* ==========================================================================
+   LOOM & LIGHT — LOGIN / REGISTER STYLES
+   Shared by login.html and register.html. No navbar/footer on these pages;
+   must fit the viewport without scrolling. Depends on tokens in global.css.
+   ========================================================================== */
+
+html.auth-html, body.auth-body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body.auth-body { background-color: var(--bg-primary); }
+
+/* Top-right theme/RTL toggles (fixed, page-level — not inside the card) --- */
+.auth-toolbar {
+  position: fixed;
+  top: var(--space-3);
+  right: var(--space-4);
+  display: flex;
+  gap: 8px;
+  z-index: 20;
+}
+
+html[dir="rtl"] .auth-toolbar { right: auto; left: var(--space-4); }
+
+.auth-icon-btn {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-btn);
+  color: var(--text-secondary);
+  background: none;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.auth-icon-btn:hover { border-color: var(--color-bronze); color: var(--color-bronze); }
+
+.auth-icon-btn--text { font-size: 10px; font-weight: 700; letter-spacing: 0.4px; }
+
+.auth-icon-moon { display: none; }
+:root[data-theme="dark"] .auth-icon-sun { display: none; }
+:root[data-theme="dark"] .auth-icon-moon { display: block; }
+
+/* Two-panel layout --------------------------------------------------------- */
+.auth-page {
+  height: 100vh;
+  display: flex;
+}
+
+.auth-visual {
+  flex: 1 1 46%;
+  position: relative;
+  background: var(--gradient-bronze-luxury);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-6);
+}
+
+.auth-visual-overlay { max-width: 380px; }
+
+.auth-visual-quote {
+  font-size: 26px;
+  color: #FFFFFF;
+  margin-bottom: var(--space-2);
+}
+
+.auth-visual-sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.auth-panel {
+  flex: 1 1 54%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  overflow-y: auto;
+}
+.auth-panel h1{
+  margin-top:20px;
+}
+
+/* Card ------------------------------------------------------------------------ */
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  padding: var(--space-4) var(--space-5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-logo { margin-bottom: var(--space-2); }
+.auth-logo img { height: 30px; width: auto; }
+
+.auth-card h1 {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.auth-subtitle {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.auth-form { width: 100%; text-align: left; }
+
+.auth-form .form-group { margin-bottom: var(--space-2); }
+.auth-form .form-input { padding: 10px 14px; font-size: 14px; }
+.auth-form .form-label { font-size: 12px; }
+
+.password-field { position: relative; }
+
+.password-field .form-input { padding-right: 42px; }
+
+html[dir="rtl"] .password-field .form-input { padding-right: 14px; padding-left: 42px; }
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  display: flex;
+}
+
+html[dir="rtl"] .password-toggle { right: auto; left: 12px; }
+
+.icon-eye-off { display: none; }
+.password-toggle.is-visible .icon-eye { display: none; }
+.password-toggle.is-visible .icon-eye-off { display: block; }
+
+.field-error {
+  font-size: 12px;
+  color: #C0392B;
+  min-height: 15px;
+  margin-top: 4px;
+  display: none;
+}
+
+.field-error.is-visible { display: block; }
+
+/* Remember me / forgot password row ----------------------------------------- */
+.auth-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block: 2px var(--space-3);
+  font-size: 13px;
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.checkbox-field input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-bronze);
+  cursor: pointer;
+}
+
+.auth-link-sm { font-size: 13px; color: var(--color-bronze); font-weight: 500; }
+.auth-link-sm:hover { text-decoration: underline; }
+
+.auth-terms {
+  align-items: flex-start;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: var(--space-3);
+}
+
+.auth-terms input { margin-top: 2px; }
+.auth-terms a { color: var(--color-bronze); font-weight: 500; }
+
+/* CTA width matches inputs (full width of the form) -------------------------- */
+.auth-submit { width: 100%; }
+
+.auth-form .form-feedback {
+  margin-top: var(--space-2);
+  font-size: 13px;
+  text-align: center;
+  color: var(--color-bronze);
+  display: none;
+}
+
+.auth-form .form-feedback.is-visible { display: block; }
+
+/* Divider ---------------------------------------------------------------------- */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  margin-block: var(--space-3);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+/* Social buttons ------------------------------------------------------------------ */
+.auth-social {
+  display: flex;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.auth-social-btn {
+  flex: 1;
+  gap: 8px;
+  font-size: 13.5px;
+  padding: 10px 14px;
+}
+
+.auth-switch {
+  margin-top: var(--space-3);
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+
+.auth-switch a { color: var(--color-bronze); font-weight: 600; }
+.auth-switch a:hover { text-decoration: underline; }
+
+/* Responsive -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .auth-visual { display: none; }
+  .auth-panel { flex: 1 1 100%; }
+}
+
+@media (max-height: 700px) {
+  .auth-card { padding: var(--space-3) var(--space-4); }
+  .auth-logo img { height: 26px; }
+  .auth-card h1 { font-size: 19px; }
+  .auth-subtitle { margin-bottom: var(--space-2); }
+  .auth-divider { margin-block: var(--space-2); }
+}
+
+@media (max-width: 420px) {
+  .auth-toolbar { top: var(--space-2); right: var(--space-2); gap: 6px; }
+  .auth-icon-btn { width: 28px; height: 28px; }
+  .auth-card { padding: var(--space-3); max-width: 100%; }
+}
+
+.auth-visual-login {
+  background-image: url("../global-images/auth-login.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.auth-visual-register {
+  background-image: url("../global-images/auth-register.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

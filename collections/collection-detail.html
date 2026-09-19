@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-detail-title>Collection Details | Loom & Light</title>
+  <meta name="description" data-detail-meta-description content="Explore material, colours, light control, privacy, sizing and care for this Loom & Light collection.">
+  <meta name="theme-color" content="#F7F3EC">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" data-detail-og-title content="Collection Details | Loom & Light">
+  <meta property="og:description" content="Material, colours, sizing and care for this Loom & Light collection.">
+  <meta property="og:image" content="../global-images/og-collection-detail.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="../global-images/favicon.svg">
+  <link rel="stylesheet" href="../global-css/global.css">
+  <link rel="stylesheet" href="../components/navbar.css">
+  <link rel="stylesheet" href="../components/footer.css">
+  <link rel="stylesheet" href="collection-detail.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- ==========================================================================
+       HEADER / NAVIGATION
+       ========================================================================== -->
+<header class="llnav" data-llnav>
+  <div class="llnav__inner">
+
+    <a href="../home-1/home-1.html" class="llnav__logo" aria-label="Loom & Light — home">
+      <img class="llnav__logo-icon llnav__logo-icon--light" src="../global-images/logo-icon-light.png" alt="" width="40" height="40">
+      <img class="llnav__logo-icon llnav__logo-icon--dark" src="../global-images/logo-icon-dark.png" alt="" width="40" height="40">
+      <span class="llnav__logo-divider" aria-hidden="true"></span>
+      <span class="llnav__logo-text">Loom<span class="llnav__logo-amp">&amp;</span>Light</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="llnav__nav" aria-label="Primary">
+      <ul class="llnav__list">
+        <li class="llnav__dropdown" data-llnav-dropdown>
+          <button type="button" class="llnav__link llnav__dropdown-trigger" data-llnav-dropdown-trigger aria-expanded="false" aria-haspopup="true">
+            Home
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </button>
+          <ul class="llnav__dropdown-menu" data-llnav-dropdown-menu>
+            <li><a href="../home-1/home-1.html" data-llnav-link>Home — Showroom</a></li>
+            <li><a href="../home-2/home.html" data-llnav-link>Home — Inspiration</a></li>
+          </ul>
+        </li>
+        <li><a href="../about/about.html" class="llnav__link" data-llnav-link>About</a></li>
+        <li><a href="../collections/collections.html" class="llnav__link" data-llnav-link>Collections</a></li>
+        <li><a href="../fabric-materials/fabric-materials.html" class="llnav__link" data-llnav-link>Fabric &amp; Materials</a></li>
+        <li><a href="../custom-sizing/custom-sizing.html" class="llnav__link" data-llnav-link>Custom Sizing</a></li>
+        <li><a href="../blogs/blogs.html" class="llnav__link" data-llnav-link>Blog</a></li>
+        <li><a href="../contact/contact.html" class="llnav__link" data-llnav-link>Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Desktop-only actions -->
+<div class="llnav__actions">
+  <button type="button" class="llnav__icon-btn" data-llnav-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="llnav__icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <svg class="llnav__icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+  </button>
+
+  <button type="button"
+          class="llnav__icon-btn llnav__icon-btn--text"
+          data-llnav-rtl-toggle
+          aria-label="Toggle right-to-left layout"
+          aria-pressed="false">
+    <span aria-hidden="true">RTL</span>
+  </button>
+
+  <a href="../contact/contact.html#booking" class="llnav__btn llnav__btn--outline">Book Now</a>
+  <a href="../login/login.html" class="llnav__btn llnav__btn--primary">Login</a>
+</div>
+
+    <!-- Hamburger (mobile only) -->
+    <button type="button" class="llnav__burger" data-llnav-burger aria-label="Open menu" aria-expanded="false" aria-controls="llnav-mobile-panel">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu panel -->
+  <div class="llnav__panel" id="llnav-mobile-panel" data-llnav-panel>
+    <ul class="llnav__mobile-list">
+      <li><a href="../home-1/home-1.html" class="llnav__mobile-link" data-llnav-link>Home — Showroom</a></li>
+      <li><a href="../home-2/home.html" class="llnav__mobile-link" data-llnav-link>Home — Inspiration</a></li>
+      <li><a href="../about/about.html" class="llnav__mobile-link" data-llnav-link>About</a></li>
+      <li><a href="../collections/collections.html" class="llnav__mobile-link" data-llnav-link>Collections</a></li>
+      <li><a href="../fabric-materials/fabric-materials.html" class="llnav__mobile-link" data-llnav-link>Fabric &amp; Materials</a></li>
+      <li><a href="../custom-sizing/custom-sizing.html" class="llnav__mobile-link" data-llnav-link>Custom Sizing</a></li>
+      <li><a href="../blogs/blogs.html" class="llnav__mobile-link" data-llnav-link>Blog</a></li>
+      <li><a href="../contact/contact.html" class="llnav__mobile-link" data-llnav-link>Contact</a></li>
+    </ul>
+
+    <div class="llnav__panel-actions">
+      <a href="../contact/contact.html#booking" class="llnav__btn llnav__btn--outline">Book Now</a>
+      <a href="../login/login.html" class="llnav__btn llnav__btn--primary">Login</a>
+    </div>
+
+    <div class="llnav__panel-toggles">
+      <button type="button" class="llnav__icon-btn llnav__icon-btn--row" data-llnav-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="llnav__icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <svg class="llnav__icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <span>Dark mode</span>
+      </button>
+      <button type="button" class="llnav__icon-btn llnav__icon-btn--row" data-llnav-rtl-toggle aria-label="Toggle right-to-left layout" aria-pressed="false">
+        <span aria-hidden="true">RTL</span>
+        <span>Right to left</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Backdrop, closes the menu on click outside the panel -->
+  <div class="llnav__backdrop" data-llnav-backdrop></div>
+</header>
+
+  <main id="main-content">
+
+    <!-- ==========================================================================
+         BACK LINK
+         ========================================================================== -->
+    <div class="container detail-back">
+      <a href="collections.html" class="detail-back__link">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 1L3 7l6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        All Collections
+      </a>
+    </div>
+
+    <!-- ==========================================================================
+         GALLERY + OVERVIEW
+         ========================================================================== -->
+    <section class="detail-overview">
+      <div class="container detail-overview__grid">
+
+        <!-- Image gallery -->
+        <div class="detail-gallery">
+          <div class="detail-gallery__main" data-gallery-main aria-live="polite"></div>
+          <div class="detail-gallery__thumbs" data-gallery-thumbs role="tablist" aria-label="Product images"></div>
+        </div>
+
+        <!-- Overview copy -->
+        <div class="detail-copy">
+          <p class="section-tag" data-detail-category>Curtains</p>
+          <h1 data-detail-name>Collection Name</h1>
+          <p class="detail-copy__price" data-detail-price>Starting from &#8377;0 / sq. ft.</p>
+          <p class="detail-copy__description" data-detail-description>Description goes here.</p>
+
+          <dl class="detail-specs">
+            <div><dt>Material</dt><dd data-spec-material></dd></div>
+            <div><dt>Light Control</dt><dd data-spec-light></dd></div>
+            <div><dt>Privacy Level</dt><dd data-spec-privacy></dd></div>
+            <div><dt>Suitable Rooms</dt><dd data-spec-rooms></dd></div>
+          </dl>
+
+          <div class="detail-colors">
+            <span class="detail-colors__label">Available Colours</span>
+            <div class="detail-colors__swatches" data-detail-colors></div>
+          </div>
+
+          <div class="detail-cta">
+            <a href="contact.html#quote" class="btn btn-premium">Request a Quote</a>
+            <a href="contact.html#booking" class="btn btn-outline">Book Free Measurement</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SIZES / CARE / INSTALLATION
+         ========================================================================== -->
+    <section class="section section-alt detail-info-section">
+      <div class="container">
+        <div class="grid grid-3 detail-info-grid">
+          <div class="detail-info-card">
+            <h3>Available Sizes</h3>
+            <p class="text-secondary" data-detail-sizes></p>
+          </div>
+          <div class="detail-info-card">
+            <h3>Care Instructions</h3>
+            <p class="text-secondary" data-detail-care></p>
+          </div>
+          <div class="detail-info-card">
+            <h3>Installation Information</h3>
+            <p class="text-secondary" data-detail-installation></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         RELATED COLLECTIONS
+         ========================================================================== -->
+    <section class="section related-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-tag">You Might Also Like</p>
+          <h2>Related Collections</h2>
+        </div>
+
+        <div class="grid grid-3 related-grid" data-related-grid></div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CTA BANNER
+         ========================================================================== -->
+    <section class="cta-banner">
+      <div class="container cta-banner__inner">
+        <h2>Ready to See It in Your Space?</h2>
+        <p>Book a free measurement and we'll bring fabric samples for this collection to your door.</p>
+        <a href="contact.html#booking" class="btn btn-premium">Book a Free Measurement</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+<footer class="site-footer">
+
+  <!-- Newsletter callout -->
+  <div class="container footer-newsletter">
+    <div class="footer-newsletter-copy">
+      <span class="eyebrow">Stay In The Loop</span>
+      <h3>Styling tips &amp; seasonal offers, straight to your inbox</h3>
+    </div>
+    <form class="newsletter-form" data-ajax-form data-success-message="Thanks for subscribing!">
+      <label for="newsletter-email" class="sr-only">Email address</label>
+      <input type="email" id="newsletter-email" class="form-input" placeholder="Your email address" required>
+      <button type="submit" class="btn btn-premium">Subscribe</button>
+    </form>
+    <p class="form-feedback" data-form-feedback aria-live="polite"></p>
+  </div>
+
+  <!-- Main columns -->
+  <div class="container footer-top">
+
+    <div class="footer-brand">
+<a href="home-1.html" class="llnav__logo llnav__logo--fixed-dark" aria-label="Loom & Light — home">
+  <img class="llnav__logo-icon" src="../global-images/logo-icon-dark.png" alt="" width="40" height="40">
+  <span class="llnav__logo-divider" aria-hidden="true"></span>
+  <span class="llnav__logo-text">Loom<span class="llnav__logo-amp">&amp;</span>Light</span>
+</a>
+      <p class="footer-tagline accent-text">Where light meets fabric.</p>
+      <p class="footer-desc">Premium curtains and window blinds, crafted to complement the way you live.</p>
+
+      <ul class="footer-contact-quick">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>
+          <a href="tel:+919876543210">+91 (987) 654-3210</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+          <a href="mailto:hello@loomandlight.com">hello@loomandlight.com</a>
+        </li>
+      </ul>
+
+      <div class="footer-socials" aria-label="Social media links">
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="Pinterest">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 17c1-3 1.5-6 2-8.5.3-1.4 2.5-1.7 3.2-.3.5 1-.1 2.6-.5 4-.4 1.5.6 2.6 2 2.1 2-.7 2.6-4.6 1-6.3-1.9-2-6-1.6-7.3 1.1"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="Facebook">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-divider" aria-hidden="true"></div>
+
+    <div class="footer-col">
+      <h4 class="footer-heading">Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="../home-1/home-1.html">Home</a></li>
+        <li><a href="../about/about.html">About</a></li>
+        <li><a href="../collections/collections.html">Collections</a></li>
+        <li><a href="../fabric-materials/fabric-materials.html">Fabric &amp; Materials</a></li>
+        <li><a href="../custom-sizing/custom-sizing.html">Custom Sizing</a></li>
+        <li><a href="../blogs/blogs.html">Blog</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer-divider" aria-hidden="true"></div>
+
+    <div class="footer-col">
+      <h4 class="footer-heading">Services</h4>
+      <ul class="footer-links">
+        <li><a href="../service-details/service-details-1.html">Curtains</a></li>
+        <li><a href="../service-details/service-details-2.html">Roller Blinds</a></li>
+        <li><a href="../service-details/service-details-3.html">Vertical Blinds</a></li>
+        <li><a href="../service-details/service-details-4.html">Sheers</a></li>
+        <li><a href="../service-details/service-details-5.html">Custom Sizing &amp; Fitting</a></li>
+        <li><a href="../service-details/service-details-6.html">Professional Installation</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-divider" aria-hidden="true"></div>
+
+    <div class="footer-col">
+      <h4 class="footer-heading">Help &amp; Support</h4>
+      <ul class="footer-links">
+        <li><a href="../contact/contact.html#faq">FAQ</a></li>
+        <li><a href="../contact/contact.html">Shipping &amp; Returns</a></li>
+        <li><a href="../login/login.html">Dashboard</a></li>
+        <li><a href="../contact/contact.html">New Features</a></li>
+        <li><a href="../contact/contact.html">Privacy Policy</a></li>
+        <li><a href="../contact/contact.html#faq">FAQs</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Trust strip -->
+  <div class="container footer-trust">
+    <span>Free In-Home Measurement</span>
+    <span class="footer-trust-dot" aria-hidden="true"></span>
+    <span>2-Year Craftsmanship Warranty</span>
+    <span class="footer-trust-dot" aria-hidden="true"></span>
+    <span>1,200+ Homes Styled</span>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>&copy; <span data-current-year>2026</span> Loom &amp; Light. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="back-to-top" data-back-to-top aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+</footer>
+
+  <script src="../global-js/global.js"></script>
+  <script src="../components/navbar.js"></script>
+  <script src="../components/footer.js"></script>
+  <script src="collection-detail.js"></script>
+</body>
+</html>

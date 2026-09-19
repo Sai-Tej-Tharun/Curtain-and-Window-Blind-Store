@@ -1,0 +1,202 @@
+/* ==========================================================================
+   ABOUT PAGE STYLESHEET — loads after global.css
+   Page-specific sections only. Header/nav/footer chrome, the section-heading
+   pattern, and the CTA banner now live in global.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   -------------------------------------------------------------------------- */
+.about-hero { padding-block: var(--space-7) var(--space-6); background-color: var(--bg-primary); }
+
+.about-hero__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.about-hero__lead { font-size: var(--fs-body-lg); color: var(--text-secondary); margin-top: var(--space-3); max-width: 46ch; }
+
+.about-hero__stats { display: flex; gap: var(--space-6); margin-top: var(--space-5); }
+.about-hero__stats > div { display: flex; flex-direction: column; gap: 2px; }
+.about-hero__stat-num { font-family: var(--font-display); font-size: 30px; color: var(--color-bronze); }
+
+.about-hero__media {
+  aspect-ratio: 4 / 4;
+  border-radius: var(--radius-card);
+  background-image: var(--gradient-warm-interior);
+}
+
+@media (max-width: 900px) {
+  .about-hero__grid { grid-template-columns: 1fr; text-align: center; }
+  .about-hero__lead { margin-inline: auto; }
+  .about-hero__stats { justify-content: center; }
+  .about-hero__media { order: -1; aspect-ratio: 16/10; }
+}
+.story-section .section-heading {
+  text-align: center;
+  margin-inline: auto;
+}
+
+/* --------------------------------------------------------------------------
+   2. OUR STORY
+   -------------------------------------------------------------------------- */
+.story-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--space-6); align-items: center; }
+.story-media { aspect-ratio: 1/1; border-radius: var(--radius-card); background-image: var(--gradient-neutral-fabric); }
+.story-copy h2 { margin-top: var(--space-2); }
+.story-copy p { margin-top: var(--space-3); }
+
+@media (max-width: 900px) {
+  .story-grid { grid-template-columns: 1fr; text-align: center; }
+}
+
+/* --------------------------------------------------------------------------
+   3. PHILOSOPHY QUOTE
+   -------------------------------------------------------------------------- */
+.philosophy-inner { max-width: 760px; margin-inline: auto; text-align: center; }
+.philosophy-quote { font-size: clamp(22px, 3vw, 30px); line-height: 1.5; margin-block: var(--space-3); }
+.philosophy-attribution { font-size: var(--fs-caption); }
+
+/* --------------------------------------------------------------------------
+   4. CRAFTSMANSHIP GRID
+   -------------------------------------------------------------------------- */
+.craft-grid { margin-top: var(--space-2); }
+.craft-item { border-top: 1px solid var(--border-color); padding-top: var(--space-3); }
+.craft-item h3 { margin-bottom: var(--space-2); }
+.craft-item {
+  text-align: center;
+}
+/* --------------------------------------------------------------------------
+   5. SHOWROOM
+   -------------------------------------------------------------------------- */
+.showroom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); align-items: center; }
+.showroom-media { aspect-ratio: 4/3; border-radius: var(--radius-card); background-image: var(--gradient-bronze-luxury); }
+.showroom-copy h2 { margin-top: var(--space-2); }
+.showroom-copy p { margin-block: var(--space-3) var(--space-4); }
+
+@media (max-width: 900px) {
+  .showroom-grid { grid-template-columns: 1fr; text-align: center; }
+}
+
+/* --------------------------------------------------------------------------
+   6. PROCESS TIMELINE
+   -------------------------------------------------------------------------- */
+.process-timeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+}
+
+.process-step {
+  position: relative;
+  padding-top: var(--space-4);
+  border-top: 2px solid var(--border-color);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s var(--ease-standard), transform 0.5s var(--ease-standard);
+}
+.process-step.is-visible { opacity: 1; transform: translateY(0); }
+
+.process-step__num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--color-bronze);
+  margin-bottom: var(--space-2);
+}
+.process-step h3 { margin-bottom: var(--space-2); }
+
+@media (max-width: 900px) {
+  .process-timeline { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .process-timeline { grid-template-columns: 1fr; max-width: 340px; margin-inline: auto; }
+}
+
+/* --------------------------------------------------------------------------
+   7. WHY LOOM & LIGHT
+   -------------------------------------------------------------------------- */
+.why-grid { justify-items: center; }
+.why-item { width: 100%; border: none; box-shadow: none; background: transparent; }
+.why-item .card-body { padding-inline: 0; }
+.why-item h4 { margin-bottom: var(--space-1); }
+
+@media (min-width: 768px) {
+  .why-grid { grid-template-columns: repeat(3, 1fr); }
+  .why-grid > :nth-child(4) { grid-column: 1 / span 1.5; margin-inline-start: 16.66%; }
+}
+
+/* --------------------------------------------------------------------------
+   8. TEAM
+   -------------------------------------------------------------------------- */
+.team-card { text-align: center; }
+
+.team-card h4 { margin-bottom: 2px; }
+.team-card__avatar {
+  width: 120px;
+  height: 120px;
+  margin-inline: auto;
+  margin-bottom: var(--space-3);
+  border-radius: 50%;
+  overflow: hidden;
+  background-image: var(--gradient-bronze-luxury);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-card__avatar img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+/* --------------------------------------------------------------------------
+   9. TESTIMONIALS
+   -------------------------------------------------------------------------- */
+.testimonial-card { text-align: center; }
+.testimonial-card__rating { color: var(--color-bronze); letter-spacing: 2px; margin-bottom: var(--space-1); }
+.testimonial-card p { margin-bottom: var(--space-1); }
+.testimonial-card footer { font-size: var(--fs-caption); }
+
+/* --------------------------------------------------------------------------
+   10. RTL ADJUSTMENTS
+   -------------------------------------------------------------------------- */
+html[dir="rtl"] .about-hero__media { order: -1; }
+html[dir="rtl"] .story-media { order: 2; }
+html[dir="rtl"] .showroom-media { order: 2; }
+.showroom-media {
+  overflow: hidden;
+}
+
+.showroom-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}.about-hero__media,
+.story-media {
+  overflow: hidden;
+}
+
+.about-hero__media img,
+.story-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}.section-heading {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.story-section .section-heading {
+  text-align: center;
+  margin-inline: auto;
+}

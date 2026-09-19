@@ -1,0 +1,283 @@
+/* ==========================================================================
+   FABRIC & MATERIALS PAGE STYLESHEET — loads after global.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. FABRIC COLOR TOKENS
+   Shared by the swatch chips, the curtain preview and the category cards.
+   -------------------------------------------------------------------------- */
+:root {
+  --fabric-linen: #D8C7AD;
+  --fabric-cotton: #EDE5D8;
+  --fabric-velvet: #5B4A3F;
+  --fabric-polyester: #C9BBA6;
+  --fabric-sheer: #F3EEE4;
+  --fabric-blackout: #33302C;
+  --fabric-textured: #A89580;
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   -------------------------------------------------------------------------- */
+.fabric-hero { padding-block: var(--space-7) var(--space-6); text-align: center; }
+.fabric-hero__inner { max-width: 640px; margin-inline: auto; }
+.fabric-hero__lead { font-size: var(--fs-body-lg); color: var(--text-secondary); margin-top: var(--space-3); }
+
+/* --------------------------------------------------------------------------
+   2. INTERACTIVE SWATCH TOOL
+   -------------------------------------------------------------------------- */
+.swatch-tool {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+/* --- Curtain preview --- */
+.curtain-preview {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+.curtain-preview__window {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-input);
+  overflow: hidden;
+  background-image: var(--gradient-warm-interior);
+}
+
+.curtain-preview__light {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.55), rgba(255,255,255,0) 60%);
+}
+
+.curtain-preview__panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 38%;
+  background-color: var(--fabric-linen);
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(255,255,255,0.16) 0px, rgba(255,255,255,0.16) 6px,
+      rgba(0,0,0,0.06) 6px, rgba(0,0,0,0.06) 12px);
+  box-shadow: inset -6px 0 14px rgba(0,0,0,0.12);
+  transition: background-color 0.4s var(--ease-standard), opacity 0.4s var(--ease-standard);
+}
+.curtain-preview__panel--left { left: 0; border-radius: 0 var(--radius-card) var(--radius-card) 0; }
+.curtain-preview__panel--right {
+  right: 0;
+  border-radius: var(--radius-card) 0 0 var(--radius-card);
+  transform: scaleX(-1);
+}
+
+.curtain-preview__label {
+  margin-top: var(--space-3);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 20px;
+}
+
+/* Fabric-specific preview treatments */
+[data-curtain-preview][data-active="linen"] .curtain-preview__panel { background-color: var(--fabric-linen); opacity: 1; }
+[data-curtain-preview][data-active="cotton"] .curtain-preview__panel { background-color: var(--fabric-cotton); opacity: 1; }
+[data-curtain-preview][data-active="velvet"] .curtain-preview__panel { background-color: var(--fabric-velvet); opacity: 1; box-shadow: inset -10px 0 22px rgba(0,0,0,0.35); }
+[data-curtain-preview][data-active="polyester"] .curtain-preview__panel { background-color: var(--fabric-polyester); opacity: 1; }
+[data-curtain-preview][data-active="sheer"] .curtain-preview__panel { background-color: var(--fabric-sheer); opacity: 0.55; box-shadow: none; }
+[data-curtain-preview][data-active="blackout"] .curtain-preview__panel { background-color: var(--fabric-blackout); opacity: 1; box-shadow: inset -10px 0 24px rgba(0,0,0,0.5); }
+[data-curtain-preview][data-active="textured"] .curtain-preview__panel { background-color: var(--fabric-textured); opacity: 1; }
+
+/* --- Swatch selector --- */
+.swatch-list { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
+
+.swatch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 14px 8px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+.swatch-btn:hover { border-color: var(--color-bronze); }
+.swatch-btn.is-active { border-color: var(--color-bronze); background-color: var(--bg-alt); }
+
+.swatch-btn__chip {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+[data-swatch-chip="linen"] { background-color: var(--fabric-linen); }
+[data-swatch-chip="cotton"] { background-color: var(--fabric-cotton); }
+[data-swatch-chip="velvet"] { background-color: var(--fabric-velvet); }
+[data-swatch-chip="polyester"] { background-color: var(--fabric-polyester); }
+[data-swatch-chip="sheer"] { background-color: var(--fabric-sheer); }
+[data-swatch-chip="blackout"] { background-color: var(--fabric-blackout); }
+[data-swatch-chip="textured"] { background-color: var(--fabric-textured); }
+
+/* --- Detail list --- */
+.swatch-details {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+}
+.swatch-details > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-2);
+  border-bottom: 1px solid var(--border-color);
+}
+.swatch-details > div:last-child { border-bottom: none; }
+.swatch-details dt { font-size: var(--fs-label); font-weight: 500; color: var(--text-secondary); }
+.swatch-details dd { font-size: var(--fs-body); text-align: right; max-width: 60%; }
+
+@media (max-width: 900px) {
+  .swatch-tool { grid-template-columns: 1fr; }
+  .curtain-preview__window { max-width: 320px; margin-inline: auto; }
+}
+.curtain-preview__window {
+  position: relative;
+  width: 100%;
+  height: 370px;
+  overflow: hidden;
+  background: #e9e4db;
+  border-radius: var(--radius-card);
+}
+
+.curtain-preview__image {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+/* --------------------------------------------------------------------------
+   3. FABRIC CATEGORY CARDS
+   -------------------------------------------------------------------------- */
+.fabric-card__swatch { aspect-ratio: 16 / 10; }
+
+.fabric-grid .fabric-card:nth-child(1) .fabric-card__swatch { background-color: var(--fabric-linen); }
+.fabric-grid .fabric-card:nth-child(2) .fabric-card__swatch { background-color: var(--fabric-cotton); }
+.fabric-grid .fabric-card:nth-child(3) .fabric-card__swatch { background-color: var(--fabric-velvet); }
+.fabric-grid .fabric-card:nth-child(4) .fabric-card__swatch { background-color: var(--fabric-polyester); }
+.fabric-grid .fabric-card:nth-child(5) .fabric-card__swatch { background-color: var(--fabric-sheer); }
+.fabric-grid .fabric-card:nth-child(6) .fabric-card__swatch { background-color: var(--fabric-blackout); }
+.fabric-grid .fabric-card:nth-child(7) .fabric-card__swatch { background-color: var(--fabric-textured); }
+.swatch-btn__chip {
+  position: relative;
+  overflow: hidden;
+}
+
+.swatch-btn__chip img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fabric-card__swatch {
+  position: relative;
+  overflow: hidden;
+}
+
+.fabric-card__swatch img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* --------------------------------------------------------------------------
+   4. COMPARISON TABLE
+   -------------------------------------------------------------------------- */
+.compare-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+  background-color: var(--bg-card);
+}
+
+.compare-table th,
+.compare-table td {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--fs-body);
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.compare-table thead th {
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  background-color: var(--bg-alt);
+}
+
+.compare-table tbody th { font-family: var(--font-display); font-weight: 500; font-size: 16px; }
+.compare-table tbody tr:last-child td,
+.compare-table tbody tr:last-child th { border-bottom: none; }
+
+/* --------------------------------------------------------------------------
+   5. FAQ ACCORDION
+   -------------------------------------------------------------------------- */
+.faq-list { max-width: 760px; margin-inline: auto; }
+
+.faq-item { border-bottom: 1px solid var(--border-color); }
+
+.faq-item__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-4);
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.faq-item__trigger svg { flex-shrink: 0; transition: transform var(--transition-fast); color: var(--color-bronze); }
+.faq-item.is-open .faq-item__trigger svg { transform: rotate(180deg); }
+
+.faq-item__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s var(--ease-standard);
+}
+.faq-item__body p {
+  overflow: hidden;
+  min-height: 0;
+  color: var(--text-secondary);
+  padding-bottom: 0;
+  transition: padding-bottom 0.3s var(--ease-standard);
+}
+.faq-item.is-open .faq-item__body { grid-template-rows: 1fr; }
+.faq-item.is-open .faq-item__body p { padding-bottom: var(--space-4); }
+
+/* --------------------------------------------------------------------------
+   6. RTL ADJUSTMENTS
+   -------------------------------------------------------------------------- */
+html[dir="rtl"] .swatch-details dd { text-align: left; }
+html[dir="rtl"] .compare-table th,
+html[dir="rtl"] .compare-table td { text-align: right; }
