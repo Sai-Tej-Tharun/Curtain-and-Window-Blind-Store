@@ -3,18 +3,20 @@
    Depends on tokens defined in global.css
    ========================================================================== */
 
-.site-footer {
+body .site-footer {
   position: relative;
-  background-color: var(--bg-footer);
-  color: var(--text-on-dark);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
-/* Woven "seam" accent line at the very top of the footer ------------------ */
+/* Woven "seam" accent line — the separator from the section above,
+   independent of whether the footer background matches it. */
 .site-footer::before {
   content: '';
   display: block;
-  height: 3px;
+  height: 4px;
   background: var(--gradient-bronze-luxury);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* Newsletter callout ---------------------------------------------------------- */
@@ -27,19 +29,19 @@
   margin-top: var(--space-6);
   margin-bottom: var(--space-6);
   padding: var(--space-4) var(--space-5);
-  background-color: rgba(154, 118, 83, 0.12);
-  border: 1px solid rgba(154, 118, 83, 0.35);
+  background-color: rgba(232, 98, 44, 0.1);
+  border: 1px solid rgba(232, 98, 44, 0.3);
   border-radius: var(--radius-card);
   position: relative;
 }
 
-.footer-newsletter-copy .eyebrow { color: var(--color-sand); margin-bottom: 6px; }
+.footer-newsletter-copy .eyebrow { color: var(--color-bronze); margin-bottom: 6px; }
 
 .footer-newsletter-copy h3 {
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-on-dark);
+  color: var(--text-primary);
   max-width: 380px;
 }
 
@@ -51,17 +53,17 @@
 
 .footer-newsletter .form-input {
   min-width: 240px;
-  background-color: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.22);
-  color: var(--text-on-dark);
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
 }
 
-.footer-newsletter .form-input::placeholder { color: #C9BFB4; opacity: 1; }
+.footer-newsletter .form-input::placeholder { color: var(--text-secondary); opacity: 0.8; }
 
 .footer-newsletter .form-feedback {
   flex-basis: 100%;
   font-size: 13px;
-  color: var(--color-sand);
+  color: var(--color-bronze);
   display: none;
   text-align: right;
 }
@@ -76,26 +78,20 @@
   padding-bottom: var(--space-6);
 }
 
-.footer-divider {
-  display: none;
-}
-
-.footer-divider {
-  width: 1px;
-  background-color: rgba(255, 255, 255, 0.12);
+.footer-col {
+  border-inline-start: 1px solid var(--border-color);
+  padding-inline-start: var(--space-5);
 }
 
 /* Brand column ------------------------------------------------------------------- */
 .footer-brand { display: flex; flex-direction: column; gap: var(--space-2); }
 
-.footer-logo img { filter: brightness(0) invert(1); }
+.site-footer .footer-tagline { font-size: 18px; color: var(--color-bronze); }
 
-.footer-tagline { font-size: 18px; color: var(--color-sand); }
-
-.footer-desc {
+.site-footer .footer-desc {
   font-size: 14px;
   line-height: 1.7;
-  color: #C9BFB4;
+  color: var(--text-secondary);
   max-width: 300px;
 }
 
@@ -110,55 +106,56 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #C9BFB4;
+  color: var(--text-secondary);
 }
 
-.footer-contact-quick svg { flex-shrink: 0; color: var(--color-sand); }
+.footer-contact-quick svg { flex-shrink: 0; color: var(--color-bronze); }
 
-.footer-contact-quick a { font-size: 13.5px; color: #C9BFB4; }
-.footer-contact-quick a:hover { color: var(--color-sand); }
+.site-footer .footer-contact-quick a { font-size: 13.5px; color: var(--text-secondary); }
+.site-footer .footer-contact-quick a:hover { color: var(--color-bronze); }
 
 .footer-socials { display: flex; gap: var(--space-2); margin-top: var(--space-2); }
 
-.social-icon {
+.site-footer .social-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 34px;
   height: 34px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid var(--border-color);
   border-radius: 50%;
-  color: var(--text-on-dark);
+  color: var(--text-primary);
   transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
 }
 
-.social-icon:hover {
+.site-footer .social-icon:hover {
   background-color: var(--color-bronze);
   border-color: var(--color-bronze);
+  color: var(--text-primary);
   transform: translateY(-2px);
 }
 
 /* Link columns ---------------------------------------------------------------------- */
-.footer-heading {
+.site-footer .footer-heading {
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.4px;
   text-transform: uppercase;
-  color: var(--text-on-dark);
+  color: var(--text-primary);
   margin-bottom: var(--space-3);
 }
 
-.footer-links { display: flex; flex-direction: column; gap: 11px; }
+.site-footer .footer-links { display: flex; flex-direction: column; gap: 11px; }
 
-.footer-links a {
+.site-footer .footer-links a {
   position: relative;
   font-size: 14px;
-  color: #C9BFB4;
+  color: var(--text-secondary);
   transition: color var(--transition-fast), padding-left var(--transition-fast);
 }
 
-.footer-links a:hover { color: var(--color-sand); padding-left: 4px; }
+.site-footer .footer-links a:hover { color: var(--color-bronze); padding-left: 4px; }
 
 /* Trust strip ------------------------------------------------------------------------- */
 .footer-trust {
@@ -168,23 +165,23 @@
   flex-wrap: wrap;
   gap: var(--space-2);
   padding-block: var(--space-3);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-color);
   font-size: 12.5px;
   font-weight: 500;
   letter-spacing: 0.3px;
   text-transform: uppercase;
-  color: var(--color-sand);
+  color: var(--color-bronze);
 }
 
 .footer-trust-dot {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: var(--border-strong);
 }
 
 /* Bottom bar ------------------------------------------------------------------------------ */
-.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.footer-bottom { border-top: 1px solid var(--border-color); }
 
 .footer-bottom-inner {
   display: flex;
@@ -193,12 +190,13 @@
   gap: var(--space-3);
   padding-block: 0;
   font-size: 13px;
-  color: #A79E93;
+  color: var(--text-secondary);
 }
+.site-footer .footer-bottom-inner p { color: var(--text-secondary); }
 
 .footer-legal { display: flex; gap: var(--space-4); }
-.footer-legal a { color: #A79E93; }
-.footer-legal a:hover { color: var(--color-sand); }
+.site-footer .footer-legal a { color: var(--text-secondary); }
+.site-footer .footer-legal a:hover { color: var(--color-bronze); }
 
 /* Back to top ------------------------------------------------------------------------------- */
 .back-to-top {
@@ -242,7 +240,7 @@ html[dir="rtl"] .back-to-top { right: auto; left: var(--space-4); }
     grid-template-columns: 1fr 1fr;
     row-gap: var(--space-5);
   }
-  .footer-divider { display: none; }
+  .footer-col { border-inline-start: none; padding-inline-start: 0; }
   .footer-brand { grid-column: 1 / -1; }
 }
 
@@ -266,5 +264,12 @@ html[dir="rtl"] .back-to-top { right: auto; left: var(--space-4); }
   .back-to-top { right: var(--space-3); bottom: var(--space-3); width: 38px; height: 38px; }
 }
 
-.llnav__logo--fixed-dark .llnav__logo-text { color: var(--text-on-dark, #F7F3EC); }
-.llnav__logo--fixed-dark .llnav__logo-divider { background-color: var(--text-on-dark, #F7F3EC); opacity: 0.4; }
+
+/* Logo icon light/dark swap, scoped locally so the footer logo works
+   even if navbar.css's version of this rule doesn't reach this element.
+   Sizing is kept separate from the display toggle below it so the two
+   never fight over the same property. */
+.site-footer .llnav__logo-icon { height: 38px; width: auto; }
+.site-footer .llnav__logo-icon--dark { display: none; }
+:root[data-theme="dark"] .site-footer .llnav__logo-icon--light { display: none; }
+:root[data-theme="dark"] .site-footer .llnav__logo-icon--dark { display: block; }

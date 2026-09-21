@@ -686,10 +686,6 @@ html[dir="rtl"] .form-select {
   padding-block: var(--space-7) var(--space-4);
 }
 
-.site-footer h4 { color: var(--text-on-dark); font-size: var(--fs-h4); margin-bottom: var(--space-3); }
-.site-footer a { color: rgba(247, 243, 236, 0.72); transition: color var(--transition-fast); }
-.site-footer a:hover { color: var(--text-on-dark); }
-.site-footer p { color: rgba(247, 243, 236, 0.72); }
 
 .site-footer__grid {
   display: grid;
