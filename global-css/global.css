@@ -284,12 +284,12 @@ p { font-size: var(--fs-body); color: var(--text-primary); }
 }
 
 .btn-primary {
-  background-color: var(--btn-primary-bg);
+  background-color: var(--btn-primary-hover);
   color: var(--btn-primary-text);
   border: 1px solid var(--btn-primary-bg);
 }
 .btn-primary:hover {
-  background-color: var(--btn-primary-hover);
+  background-color: var(--btn-primary-bg);
   border-color: var(--btn-primary-hover);
 }
 

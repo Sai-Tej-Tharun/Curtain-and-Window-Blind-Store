@@ -363,11 +363,37 @@ body { padding-top: var(--header-height); }
 /* --------------------------------------------------------------------------
    TRUST STRIP
    -------------------------------------------------------------------------- */
-.trust-strip { padding-block: var(--space-5); border-bottom: 1px solid var(--border-color); }
-.trust-strip .grid { grid-template-columns: repeat(4, 1fr); gap: var(--space-4); }
-.trust-item { display: flex; align-items: center; gap: 12px; justify-content: center; text-align: left; }
-.trust-item svg { flex-shrink: 0; color: var(--color-bronze); }
-.trust-item span { font-size: 13.5px; font-weight: 500; color: var(--text-primary); line-height: 1.35; }
+.trust-strip {
+  padding-block: var(--space-5);
+  background: var(--bg-secondary, #F7F4EF);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.trust-strip .grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  text-align: left;
+}
+
+.trust-item svg {
+  flex-shrink: 0;
+  color: var(--color-bronze);
+}
+
+.trust-item span {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
 @media (max-width: 1024px) { .trust-strip .grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 767px) { .trust-item { justify-content: center; text-align: center; flex-direction: column; gap: 8px; } }
 

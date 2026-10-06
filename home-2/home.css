@@ -253,7 +253,21 @@ html[data-theme="dark"] .icon-toggle .icon-moon { display: block; }
 .hero-inspire-backdrop {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #EDE5D8 0%, #D8C7AD 55%, #C6B296 100%);
+  width: 100%;
+  height: 100%;
+  background-color: #D8C7AD; /* fallback if the image fails to load */
+  background-image:
+    linear-gradient(180deg, rgba(41,39,37,0.25) 0%, rgba(41,39,37,0.35) 100%),
+    url("banner.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* The drawn window and glow sit on top of the image and hide part of it */
+.hero-inspire-window,
+.hero-inspire-glow {
+  display: none;
 }
 
 .hero-inspire-window {
@@ -307,7 +321,14 @@ html[data-theme="dark"] .icon-toggle .icon-moon { display: block; }
 .hero-inspire h1 { margin-bottom: var(--space-3); }
 .hero-inspire-sub { max-width: 560px; margin-inline: auto; margin-bottom: var(--space-4); font-size: var(--fs-body-lg); }
 .hero-inspire-actions { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
-
+.collections-hero__btn-ghost {
+  color: #fff;
+  border-color: rgba(255,255,255,0.7);
+}
+.collections-hero__btn-ghost:hover {
+  background-color: rgba(255,255,255,0.12);
+  border-color: #fff;
+}
 .hero-scroll-cue {
   position: absolute;
   bottom: var(--space-4);
@@ -577,6 +598,7 @@ html[data-theme="dark"] .icon-toggle .icon-moon { display: block; }
   object-fit: cover;
   object-position: center;
 }
+.text-secondary { color: rgba(255,255,255,0.85); margin-bottom: var(--space-4); }
 /* --------------------------------------------------------------------------
    9. CTA BANNER
    -------------------------------------------------------------------------- */
@@ -634,52 +656,4 @@ html[data-theme="dark"] .icon-toggle .icon-moon { display: block; }
   .footer-grid { grid-template-columns: 1fr; text-align: center; }
   .footer-brand { display: flex; flex-direction: column; align-items: center; }
   .footer-socials { justify-content: center; }
-}
-/* --------------------------------------------------------------------------
-   HERO INSPIRE — ALWAYS LIGHT MODE
-   -------------------------------------------------------------------------- */
-
-.hero-inspire {
-  --text-primary: #1f1b18;
-  --text-secondary: #6f6258;
-  --color-bronze: #9A7653;
-  --border-color: rgba(154, 118, 83, 0.25);
-
-  color: #1f1b18;
-}
-
-.hero-inspire .text-secondary {
-  color: #6f6258 !important;
-}
-
-.hero-inspire .section-tag {
-  color: #9A7653 !important;
-}
-
-.hero-inspire h1 {
-  color: #1f1b18 !important;
-}
-
-.hero-inspire .accent-text {
-  color: #9A7653 !important;
-}
-
-.hero-inspire .hero-inspire-sub {
-  color: #6f6258 !important;
-}
-
-.hero-inspire .btn-primary {
-  color: #fff !important;
-  background-color: #9A7653 !important;
-  border-color: #9A7653 !important;
-}
-
-.hero-inspire .btn-outline {
-  color: #9A7653 !important;
-  border-color: #9A7653 !important;
-  background-color: transparent !important;
-}
-
-.hero-inspire .hero-scroll-cue {
-  color: #9A7653 !important;
 }

@@ -247,9 +247,12 @@ html[data-theme="dark"] .icon-toggle .icon-moon { display: block; }
    -------------------------------------------------------------------------- */
 .cs-hero {
   margin-top: var(--header-height);
-  padding-block: var(--space-7);
+  min-height: calc(100vh - var(--header-height));
+  padding-block: var(--space-6);
   background-color: var(--bg-alt);
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .cs-hero-inner {
@@ -288,51 +291,34 @@ html[data-theme="dark"] .icon-toggle .icon-moon { display: block; }
 
 .cs-hero-visual {
   position: relative;
-  aspect-ratio: 4 / 3.4;
+  width: 100%;
+  height: min(68vh, 680px);
+  min-height: 480px;
   border-radius: var(--radius-card);
-  background: linear-gradient(155deg, #EDE5D8, #D8C7AD 80%);
+  overflow: hidden;
+  background: var(--bg-secondary, #F7F4EF);
   box-shadow: var(--shadow-card);
 }
 
-.cs-hero-window {
-  position: absolute;
-  inset: 12% 16%;
-  border: 8px solid var(--color-soft-white);
-  border-radius: 4px;
-  box-shadow: 0 14px 40px rgba(41,39,37,0.16);
+.cs-hero-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
-.cs-hero-window .pane-v { position: absolute; top: 0; bottom: 0; left: 50%; width: 6px; margin-left: -3px; background: var(--color-soft-white); }
-.cs-hero-window .pane-h { position: absolute; left: 0; right: 0; top: 50%; height: 6px; margin-top: -3px; background: var(--color-soft-white); }
-
-.cs-hero-tape {
-  position: absolute;
-  width: 46%;
-  bottom: 10%;
-  right: 8%;
-  filter: drop-shadow(0 8px 16px rgba(41,39,37,0.2));
-}
-
-.cs-hero-dim {
-  position: absolute;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px; height: 26px;
-  border-radius: 50%;
-  background-color: var(--color-charcoal);
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 700;
-}
-.cs-hero-dim-w { bottom: 14%; left: 50%; transform: translateX(-50%); }
-.cs-hero-dim-h { top: 50%; left: 10%; transform: translateY(-50%); }
 
 @media (max-width: 900px) {
   .cs-hero-inner { grid-template-columns: 1fr; text-align: center; }
   .cs-hero-actions, .cs-hero-points { justify-content: center; align-items: center; }
   .cs-hero-points li { text-align: left; }
-  .cs-hero-visual { max-width: 420px; margin-inline: auto; }
+  .cs-hero-visual {
+  width: 100%;
+  max-width: 420px;
+  height: 420px;
+  min-height: 0;
+  margin-inline: auto;
+}
 }
 
 /* --------------------------------------------------------------------------

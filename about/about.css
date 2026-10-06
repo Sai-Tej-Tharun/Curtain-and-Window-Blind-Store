@@ -7,32 +7,57 @@
 /* --------------------------------------------------------------------------
    1. HERO
    -------------------------------------------------------------------------- */
-.about-hero { padding-block: var(--space-7) var(--space-6); background-color: var(--bg-primary); }
+.about-hero {
+  display: flex;
+  align-items: center;
+  min-height: calc(100svh - var(--header-height));
+  min-height: calc(100vh - var(--header-height));
+  padding-block: var(--space-5);
+  background-color: var(--bg-primary);
+}
 
 .about-hero__grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: var(--space-6);
   align-items: center;
+  width: 100%;
 }
 
 .about-hero__lead { font-size: var(--fs-body-lg); color: var(--text-secondary); margin-top: var(--space-3); max-width: 46ch; }
+
+.about-hero__actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-4);
+}
 
 .about-hero__stats { display: flex; gap: var(--space-6); margin-top: var(--space-5); }
 .about-hero__stats > div { display: flex; flex-direction: column; gap: 2px; }
 .about-hero__stat-num { font-family: var(--font-display); font-size: 30px; color: var(--color-bronze); }
 
+/* Photo height follows the viewport so the whole hero fits on screen */
 .about-hero__media {
-  aspect-ratio: 4 / 4;
+  height: clamp(360px, calc(100svh - var(--header-height) - 2 * var(--space-5)), 680px);
   border-radius: var(--radius-card);
   background-image: var(--gradient-warm-interior);
+  overflow: hidden;
+}
+.about-hero__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 900px) {
+  .about-hero { min-height: 0; }
   .about-hero__grid { grid-template-columns: 1fr; text-align: center; }
   .about-hero__lead { margin-inline: auto; }
+  .about-hero__actions,
   .about-hero__stats { justify-content: center; }
-  .about-hero__media { order: -1; aspect-ratio: 16/10; }
+  .about-hero__media { order: -1; height: auto; aspect-ratio: 16/10; }
 }
 .story-section .section-heading {
   text-align: center;
@@ -62,11 +87,45 @@
    4. CRAFTSMANSHIP GRID
    -------------------------------------------------------------------------- */
 .craft-grid { margin-top: var(--space-2); }
-.craft-item { border-top: 1px solid var(--border-color); padding-top: var(--space-3); }
-.craft-item h3 { margin-bottom: var(--space-2); }
+
 .craft-item {
+  position: relative;
+  border-top: 2px solid var(--border-color);
+  padding-top: 42px;
   text-align: center;
 }
+
+.craft-item::before {
+  content: "01";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 36px;
+
+  background: var(--bg-primary, #FFFFFF);
+  color: var(--color-bronze);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.craft-item:nth-child(2)::before { content: "02"; }
+.craft-item:nth-child(3)::before { content: "03"; }
+.craft-item:nth-child(4)::before { content: "04"; }
+
+.craft-item h3 { margin-bottom: var(--space-2); }
 /* --------------------------------------------------------------------------
    5. SHOWROOM
    -------------------------------------------------------------------------- */
@@ -90,21 +149,36 @@
 
 .process-step {
   position: relative;
-  padding-top: var(--space-4);
+  padding-top: 42px;
   border-top: 2px solid var(--border-color);
   text-align: center;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.5s var(--ease-standard), transform 0.5s var(--ease-standard);
 }
+
 .process-step.is-visible { opacity: 1; transform: translateY(0); }
 
 .process-step__num {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 26px;
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 36px;
+  padding: 0 8px;
+  background: var(--bg-primary, #FFFFFF);
   color: var(--color-bronze);
-  margin-bottom: var(--space-2);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  z-index: 2;
 }
 .process-step h3 { margin-bottom: var(--space-2); }
 
@@ -118,14 +192,113 @@
 /* --------------------------------------------------------------------------
    7. WHY LOOM & LIGHT
    -------------------------------------------------------------------------- */
-.why-grid { justify-items: center; }
-.why-item { width: 100%; border: none; box-shadow: none; background: transparent; }
-.why-item .card-body { padding-inline: 0; }
-.why-item h4 { margin-bottom: var(--space-1); }
+/* =========================================================
+   WHY LOOM & LIGHT — PREMIUM CARDS
+   ========================================================= */
 
-@media (min-width: 768px) {
-  .why-grid { grid-template-columns: repeat(3, 1fr); }
-  .why-grid > :nth-child(4) { grid-column: 1 / span 1.5; margin-inline-start: 16.66%; }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* Card */
+.why-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid var(--border-color, #CFC2B0);
+  border-radius: 8px;
+  background: var(--bg-primary, #FFFFFF);
+  box-shadow: 0 8px 24px rgba(41, 39, 37, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* Subtle premium accent */
+.why-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+
+  background: var(--color-bronze, #9A7653);
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+/* Card hover */
+.why-item:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-bronze, #9A7653);
+  box-shadow: 0 16px 36px rgba(41, 39, 37, 0.12);
+}
+
+.why-item:hover::before {
+  transform: scaleX(1);
+}
+
+/* Card content */
+.why-item .card-body {
+  height: 100%;
+  padding: 30px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Heading */
+.why-item h4 {
+  margin: 0 0 12px;
+  color: var(--text-primary, #292725);
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+
+/* Description */
+.why-item p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 991px) {
+  .why-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+
+@media (max-width: 767px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .why-item .card-body {
+    padding: 26px 24px;
+  }
+
+  .why-item h4 {
+    font-size: 17px;
+  }
 }
 
 /* --------------------------------------------------------------------------
