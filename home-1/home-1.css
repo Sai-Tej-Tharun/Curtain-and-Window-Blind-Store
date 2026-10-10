@@ -708,3 +708,46 @@ body { padding-top: var(--header-height); }
   .hero-bg { animation: none; }
   .hero-scroll-dot { animation: none; }
 }
+/* TRUST STRIP — DARK MODE */
+[data-theme="dark"] .trust-strip,
+.dark-mode .trust-strip,
+body.dark .trust-strip {
+  background: #242321;
+  border-top-color: rgba(154, 118, 83, 0.24);
+  border-bottom-color: rgba(154, 118, 83, 0.24);
+}
+
+[data-theme="dark"] .trust-item svg,
+.dark-mode .trust-item svg,
+body.dark .trust-item svg {
+  color: #C5A47E;
+}
+
+[data-theme="dark"] .trust-item span,
+.dark-mode .trust-item span,
+body.dark .trust-item span {
+  color: #E8E2D9;
+}
+
+/* Subtle hover interaction */
+[data-theme="dark"] .trust-item,
+.dark-mode .trust-item,
+body.dark .trust-item {
+  transition: color 0.25s ease;
+}
+
+[data-theme="dark"] .trust-item:hover svg,
+.dark-mode .trust-item:hover svg,
+body.dark .trust-item:hover svg {
+  color: #E0BC91;
+}
+
+/* Responsive layout */
+@media (max-width: 767px) {
+  [data-theme="dark"] .trust-item span,
+  .dark-mode .trust-item span,
+  body.dark .trust-item span {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+}
