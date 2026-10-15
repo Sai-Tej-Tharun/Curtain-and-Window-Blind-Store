@@ -657,3 +657,14 @@ html[data-theme="dark"] .icon-toggle .icon-moon { display: block; }
   .footer-brand { display: flex; flex-direction: column; align-items: center; }
   .footer-socials { justify-content: center; }
 }
+
+/* Secondary text: light and dark mode */
+.text-secondary {
+    color: #000000 !important;
+}
+
+/* Dark mode */
+html[data-theme="dark"] .text-secondary,
+body.dark-mode .text-secondary {
+    color: #ffffff !important;
+}
